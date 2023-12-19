@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PricingPage from './components/PricingPage'
+import PricingPage from '../Component/PricingPage'
 
 const Text = ({style = {}}) => (
     <p style={{...style, fontFamily:"Inter"}}>
@@ -10,18 +10,18 @@ const Text = ({style = {}}) => (
 )
 const StyledText = withStyles(Text);//new component
 
-function withStyles(Component) {
+function withStyles() {
     return (props) => {
         const style = {
             color: "red",
             fontSize:"1em",
             ...props.style,
         };
-        return <Component {...props} style = {style}/>;
     };
+    return <Component {...props} style = {style}/>;
 };
 
-function Welcome({myName}) {
+function Welcome(myName) {
     return ( 
         <section>
             <h1>
@@ -36,7 +36,7 @@ export default function MyApp() {
         <div className='App'>
             <Welcome myName="ThiDK"/>
             <Text />
-            <StyledText />
+            <StyledText/>
             <PricingPage/>
         </div>
      );
